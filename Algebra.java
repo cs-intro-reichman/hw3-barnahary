@@ -14,12 +14,14 @@ public class Algebra {
    		System.out.println(minus(2,7));  // -5
 		   System.out.println(minus(-2,-9));  // -11
  		System.out.println(times(3,4)); // 12
+		 System.out.println(times(1,-2)); // -2
 		 System.out.println(times(-3,-2));  // 6
 		 System.out.println(times(-3,2));  // -6
    		System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
    		System.out.println(pow(5,3));      // 5^3
+		   System.out.println(pow(-2,3)); //-8
    		System.out.println(pow(3,5));      // 3^5
-   		System.out.println(div(12,3));   // 12 / 3    
+   		System.out.println(div(12,3));   // 12 / 3      // 5 
    		System.out.println(div(5,5));    // 5 / 5  
    		System.out.println(div(25,7));   // 25 / 7
    		System.out.println(mod(25,7));   // 25 % 7
@@ -49,7 +51,7 @@ public class Algebra {
 	public static int minus(int x1, int x2) {
 		if (x1 < 0 && x2 < 0) {
 			for (int j = 0; j > x2; j--) {
-				x1--;
+				x1++;
 			}
 		}
 		for (int i = 0; i < x2; i++) {
@@ -65,6 +67,10 @@ public class Algebra {
 			for (int j = 0; j > x2; j--) {
 				outcome = plus(outcome, x1);
 			} 
+		} if (x1 > 0 && x2 < 0) {
+			for ( int k = 0; k > x2; k--) {
+				outcome -= 1;
+			}
 		}
 			for (int i = 0; i < x2; i++) {
 		outcome = plus(outcome, x1);
@@ -87,13 +93,16 @@ public class Algebra {
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-		int times = 0;
-		while (x1 >= x2) {
-			x1 = minus(x1, x2);
-			times++;
-		}
-		return times;
-	}
+	        int times = 0;
+        while (x1 >= x2) {
+            x1 = minus(x1, x2);
+            times++;
+        }
+        return times;
+    }
+   
+		
+
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
@@ -114,6 +123,7 @@ public class Algebra {
 		
 		while (finel != prev) {
 			prev = finel;
+
 
 			int firstStep = div(x, finel);
 			int secondStep = plus(finel, firstStep);

@@ -7,6 +7,8 @@ public class Anagram {
 		System.out.println(isAnagram("Madam Curie","Radium came")); // true
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort"));// true
 		System.out.println(isAnagram("Tom Marvolo Ridle","I am Lord Voldemort")); // false
+		System.out.println(isAnagram("William Shakespeare", "I am a weakish speller")); // false
+		
 		System.out.println(isAnagram("ababa","aabb")); // false
 		
 
@@ -35,9 +37,7 @@ public class Anagram {
 	public static boolean isAnagram(String str1, String str2) {
 		String sTr1 = preProcess(str1);
 		String sTr2 = preProcess(str2);
-		if (sTr1.length() != sTr2.length()) {
-			return false;
-		} // if the Strings are not equal - definetly not an anagram.
+		// if the Strings are not equal - definetly not an anagram.
 		  // first loop : 
 			for (int i = 0; i < sTr1.length(); i++) {
 				char c = sTr1.charAt(i);
