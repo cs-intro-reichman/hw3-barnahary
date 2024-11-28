@@ -50,8 +50,11 @@ public class LoanCalc {
 				return payment;
 			}
 			payment += epsilon;
+		
+		return payment;
 		}
     }
+
     
     // Uses bisection search to compute an approximation of the periodical payment 
 	// that will bring the ending balance of a loan close to 0.
