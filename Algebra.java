@@ -85,19 +85,37 @@ public class Algebra {
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
 		int result = 1;
+		boolean negative = false;
+		if (x < 0) {
+			negative = (mod(n, 2)!= 0);
+			x = -x;
+		}
 		for (int i = 0; i < n; i++) {
 			result = times(result, x);
+		}
+		if (negative) {
+			result = -result;
 		}
 		return result;
 	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-	        int times = 0;
-        while (x1 >= x2) {
-            x1 = minus(x1, x2);
-            times++;
-        }
+	     boolean negativeResult = (x1 < 0) != (x2 < 0);
+
+		 if (x1 < 0) x1 = minus(0, x1);
+		 if (x2 < 0) x2 = minus(0, x2);
+
+		 int times = 0;
+		 while (x1 >= x2) {
+         x1 = minus(x1, x2);
+		 times++;
+		 }
+
+		 if (negativeResult) {
+			times = minus(0, times);
+		 }
+		
         return times;
     }
    
