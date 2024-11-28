@@ -71,9 +71,12 @@ public class Anagram {
 		if (Character.isUpperCase(c)) {
 				outcome += Character.toLowerCase(c);
 			// second condition
-			} else if (c >= 'a' && c <= 'z' ) {
+			}
+			if (c >= 'a' && c <= 'z') {
 				outcome += c;
-			}  
+			}  else if (c == ' ') {
+				outcome += ' ';
+			}
 		}
 			return outcome;
 			}
